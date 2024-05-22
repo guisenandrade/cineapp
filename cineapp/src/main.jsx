@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import{createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Home from './pages/Home.jsx'
+import Sobre from './pages/Sobre.jsx'
+import Contato from './pages/Contato.jsx'
+import PageNotFound from './pages/PageNotFound.jsx'
+import Filmes from './pages/Filmes.jsx'
 
 const router = createBrowserRouter(
 
@@ -15,7 +20,7 @@ const router = createBrowserRouter(
         {path:"filmes", element:<Filmes/>},
         {path:"sobre", element:<Sobre/>},
         {path:"contato", element:<Contato/>},
-        {path:"+", element:<PageNotFound/>}
+        {path:"*", element:<PageNotFound/>}
        
       ]
     }
@@ -24,6 +29,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>,
 )
