@@ -3,27 +3,27 @@ import data from '../../artigos.json'
 function Home(){
         return (
             <>
+            <h1 className='font-normal text-4xl mb-7 ml-4'> NOVOS NO CIMENA</h1>
             <div className="grid grid-cols-3">
                 {
                      data.map(
                         (filme, index) =>(
                             <div className="card" key={index}>
-                                <h1 key={filme.title}>{filme.title}</h1>
-                                <img src={filme.image}/>
+                                <img className='rounded-xl w-52 h-72 ml-4' src={filme.image}/>
+
+                                <div className='bg-terciary-sena  w-52 h-14 rounded-xl ml-4 mb-8'>
+                                    <img className='rounded-xl w-20 h-20' src={filme.foto} />
+                                <h1 className='font-normal text-lg ml-4' key={filme.title}>{filme.title}</h1>
                                 <div className="tags">
                                     {
                                         filme.tags.map( tag =>(
-                                            <span key={tag}>{tag}</span>
+                                            <span className='font-normal text-quarter-sena ml-4' key={tag}>{tag}</span>
                                         ))
                                     }
                                 </div>
-                                <div className="text">
-                                    {
-                                        filme.text.map( text=>(
-                                            <p key={text}>{text}</p>
-                                        ))
-                                    }
+                                    
                                 </div>
+                                
                             </div>
                         )
                     )

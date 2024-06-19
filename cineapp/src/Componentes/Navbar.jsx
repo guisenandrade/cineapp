@@ -4,10 +4,9 @@ function Navbar() {
     return (
 <nav>
   <ul className='flex gap-3'>
-    <li><Link to ="/">Home</Link></li>
-    <li><Link to ="filmes">Filmes</Link></li>
-    <li><Link to ="sobre">Sobre</Link></li>
-    <li><Link to ="contato">Contato</Link></li>
+    <li><Link to ="/">HOME</Link></li>
+    <li><Link to ="filmes">FILMES</Link></li>
+    <li><Link to ="sobre">FAVORITOS</Link></li>
   </ul>
 </nav>
        

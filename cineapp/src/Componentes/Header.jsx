@@ -2,9 +2,9 @@ import Navbar from "./Navbar";
 
 function Header() {
     return ( 
-        <header className="flex bg-primary-thompson text-white p-4 mb-4 text-xl justify-between">
-            <span>Olá, visitante!</span>
-            <h1>Bem Vindo ao MovieApp!</h1>
+        <header className="flex bg-primary-sena text-white p-4 mb-4 text-3xl justify-between font-normal">
+            <span className="font-titulo text-5xl">CINEFLIX</span>
+
             <Navbar/>
         </header>
      );
