@@ -16,13 +16,23 @@ function DetalhesFilme(){
 
     return (
         <>
-        <img src={`https://image.tmdb.org/t/p/w400/${filme.poster_path}`}/>  
-        <h1>Detalhes do Filme</h1>
-        <p>{filme.title}</p>
-        <p>{filme.vote_average}</p>
+        <div className="flex flex-row  m-4  rounded-lg w-[1500px]">
+        <img className="ml-10  w-80 rounded-xl " src={`https://image.tmdb.org/t/p/w1280/${filme.poster_path}`}/> 
+        <div className=" flex flex-col">
+        <p className="font-normal text-4xl ml-4 text-center mb-10">{filme.title}</p>
+        <p className="font-normal text-quarter-sena ml-4 w-[650px] text-center">{filme.overview}</p>
+        </div>
+        
+            </div>
+            <div className="bg-secondary-sena h-[94px]"></div>
+            
+            
+       
+        
         </>
         
     )
+   
 }
 
 export default DetalhesFilme
