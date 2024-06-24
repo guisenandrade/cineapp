@@ -15,7 +15,8 @@ function DetalhesFilme(){
       },[])
 
     return (
-        <>  
+        <>
+        <img src={`https://image.tmdb.org/t/p/w400/${filme.poster_path}`}/>  
         <h1>Detalhes do Filme</h1>
         <p>{filme.title}</p>
         <p>{filme.vote_average}</p>

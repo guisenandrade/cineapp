@@ -1,33 +1,40 @@
-import data from '../../artigos.json'
+import { useState, useEffect } from 'react'
+import{Link} from 'react-router-dom'
 
 function Home(){
+
+    const[filmes,setFilmes] = useState([])
+
+    useEffect( () =>{
+      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7c572a9f5b3ba776080330d23bb76e1e`)
+      .then(response => response.json())
+      .then(response => setFilmes(response.results))
+      .catch(error => console.log(error))
+    },[])
+
         return (
             <>
             <img className=' w-10/12 h-64 ml-28 mb-10'  src="../../public/mortais.jpg" />
             <h1 className='font-normal text-4xl mb-7 ml-28'> NOVOS NO CIMENA</h1>
             <div className="grid grid-cols-3">
                 {
-                     data.map(
-                        (filme, index) =>(
-                            <div className="card" key={index}>
-                                <img className='rounded-xl w-52 h-72 ml-28' src={filme.image}/>
-
-                                <div className='bg-terciary-sena  w-52 h-14 rounded-xl ml-28 mb-8'>
-                                   
-                                <h1 className='font-normal text-lg ml-4' key={filme.title}>{filme.title}</h1>
-                                <div className="tags">
-                                    {
-                                        filme.tags.map( tag =>(
-                                            <span className='font-normal text-quarter-sena ml-4' key={tag}>{tag}</span>
-                                        ))
-                                    }
-                                </div>
-                                    
-                                </div>
-                                
+                   filmes.map(
+                    (filme) =>(
+                        <div className="card" key={filme.id}>
+                           
+                            <img className='rounded-xl w-52 h-72 ml-28' src={`https://image.tmdb.org/t/p/w200/${filme.poster_path}`} alt={filme.title}/>
+                            
+                            <div className='bg-terciary-sena  w-52 h-14 rounded-xl ml-28 mb-8'>
+                            <Link to={`${filme.id}`}>
+                            <h1 className='font-normal text-lg ml-4' key={filme.title}>{filme.title}</h1>
+                            <span className='font-normal text-quarter-sena ml-4' key={filme}>Nota do Filme : {filme.vote_average.toFixed()}</span>
+                            </Link>
                             </div>
-                        )
+                          
+                            
+                        </div>
                     )
+                )
                 }
            
             </div>
